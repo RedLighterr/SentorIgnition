@@ -11,8 +11,10 @@ namespace Sentor.Views
 			InitializeComponent();
 		}
 
-		private void TextBox_KeyDown(object? sender, Avalonia.Input.KeyEventArgs e)
+		private async void TextBox_KeyDown(object? sender, Avalonia.Input.KeyEventArgs e)
 		{
+			MainViewModel viewModel = new MainViewModel();
+			await viewModel.SendAsync();
 		}
 	}
 }

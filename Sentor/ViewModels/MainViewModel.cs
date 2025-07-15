@@ -60,10 +60,6 @@ namespace Sentor.ViewModels
 			var config = Config.Load("config.json");
 			var service = new AssistantService(config.OpenAiApiKey, config.AssitantID);
 
-			System.Diagnostics.Debug.WriteLine("\n" + config.OpenAiApiKey + "\n");
-			System.Diagnostics.Debug.WriteLine(config.AssitantID + "\n");
-			System.Diagnostics.Debug.WriteLine(config.ThreadID + "\n");
-
 			//await service.CreateThreadAsync();
 			await service.SendUserMessageAsync(input);
 			var reply = await service.RunAssistantAndGetReplyAsync();
