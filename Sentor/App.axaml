@@ -1,0 +1,20 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:Sentor"
+             xmlns:conv="clr-namespace:Sentor.Converters;assembly=Sentor"
+             x:Class="Sentor.App"
+             RequestedThemeVariant="Dark">
+
+	<Application.Resources>
+		<conv:BoolToAlignConverter x:Key="BoolToAlign"/>
+		<conv:BoolToColorConverter x:Key="BoolToColor"/>
+	</Application.Resources>
+
+	<Application.DataTemplates>
+		<local:ViewLocator/>
+	</Application.DataTemplates>
+
+	<Application.Styles>
+		<FluentTheme />
+	</Application.Styles>
+</Application>

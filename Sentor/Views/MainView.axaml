@@ -1,0 +1,53 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Sentor.ViewModels"
+             xmlns:models="using:Sentor.Models"
+             x:Class="Sentor.Views.MainView"
+             x:DataType="vm:MainViewModel">
+
+	<UserControl.Resources>
+		<!-- Kullanıcıya ait mesajlar sağda ve mavi -->
+		<SolidColorBrush x:Key="UserBubbleColor" Color="#0078D7"/>
+		<!-- Asistan mesajları solda ve gri -->
+		<SolidColorBrush x:Key="BotBubbleColor" Color="#444444"/>
+	</UserControl.Resources>
+
+	<Grid RowDefinitions="*,Auto" Margin="10">
+		<!-- Mesajları Gösteren Kısım -->
+		<ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+			<ItemsControl ItemsSource="{Binding Messages}">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate x:DataType="models:ChatMessage">
+						<Border Background="{Binding IsUser, Converter={StaticResource BoolToColor}}"
+                                HorizontalAlignment="{Binding IsUser, Converter={StaticResource BoolToAlign}}"
+                                CornerRadius="12" Padding="10" Margin="5" MaxWidth="300">
+							<SelectableTextBlock Text="{Binding Text}" Foreground="White" TextWrapping="Wrap" SelectableTextBlock.CopyingToClipboard=""/>
+						</Border>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</ScrollViewer>
+
+		<!-- Mesaj Gönderme Alanı -->
+		<Grid Grid.Row="1" ColumnDefinitions="*,Auto" Margin="0,10,0,0">
+			<TextBox Grid.Column="0"
+					 TextWrapping="Wrap"
+					 MaxHeight="150"
+					 VerticalAlignment="Top"
+					 Text="{Binding UserInput, Mode=TwoWay}"
+					 Watermark="Bir mesaj yaz..."
+					 Margin="0,0,5,0"
+					 KeyDown=""/>
+
+			<Button Grid.Column="1"
+                    Content="Gönder"
+                    Width="80"
+                    VerticalAlignment="Top"
+                    Command="{Binding SendCommand}" />
+		</Grid>
+
+		<Grid Grid.Row="2" ColumnDefinitions="*,Auto" Margin="20,50,0,0">
+			<Label Grid.Row="0" HorizontalAlignment="Right" Foreground="Gray">Sentor V0.1 - Ignition</Label>
+		</Grid>
+	</Grid>
+</UserControl>
