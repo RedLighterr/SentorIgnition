@@ -1,5 +1,5 @@
 # SentorIgnition
-Sentor is a project that is an Intelligent Assitance and Ignition is her first version in working.
+### Sentor is a project that is an Intelligent Assitance and Ignition is her first version in working.
 <img width="602" height="482" alt="resim" src="https://github.com/user-attachments/assets/79fa6e90-25be-4864-b3bc-eb79c1af93d0" />
 <img width="602" height="482" alt="resim" src="https://github.com/user-attachments/assets/03919a2d-c4c2-4ee1-b86a-e85b1e9119f6" />
 
